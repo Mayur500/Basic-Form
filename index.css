@@ -1,0 +1,221 @@
+html {
+    background: rgb(12,12,12);
+    font-family: sans-serif;
+  }
+  
+  *, ::after, ::before {
+    box-sizing: border-box;
+  }
+  
+  @keyframes slide-up2 {
+      0% {
+          transform: translateY(.5em);
+          opacity: 0;
+      }
+      100%{
+          transform: translateY(0);
+          opacity: 1;
+      }
+  }
+  
+  @keyframes glow-load {
+      0% {
+          box-shadow: none;
+      }
+      100%{
+          box-shadow:
+              0px 0px 30px #acf00c;
+      }
+  }
+  
+  @keyframes continuous-glow {
+      0% {
+      box-shadow: 0 0 5px rgba(255, 157, 9, 0.39), inset 0 0 5px rgba(255, 153, 0, 0.356), 0 2px 0 #000;
+      }	
+      100% {
+      box-shadow: 0 0 20px rgba(255, 153, 0, 0.6), inset 0 0 10px rgba(255, 145, 0, 0.4), 0 2px 0 #000;
+      }
+  }
+  
+  
+  .form-container {
+    margin: auto;
+    width: 90%;
+  }
+  
+  .form-item,
+  .textarea-div {
+      opacity: 0;
+  }
+  
+  .form-item1 {
+      animation: .2s cubic-bezier(0.47, 0, 0.745, 0.715) .3s 1 slide-up2 ;
+    animation-fill-mode: forwards;
+  }
+  
+  .form-item2 {
+      animation: .2s cubic-bezier(0.47, 0, 0.745, 0.715) .4s 1 slide-up2 ;
+    animation-fill-mode: forwards;
+  }
+  
+  .form-item3 {
+      animation: .2s cubic-bezier(0.47, 0, 0.745, 0.715) .5s 1 slide-up2 ;
+    animation-fill-mode: forwards;
+  }
+  
+  .form-item4 {
+      animation: .2s cubic-bezier(0.47, 0, 0.745, 0.715) .6s 1 slide-up2 ;
+    animation-fill-mode: forwards;
+  }
+  
+  form {
+      background-color: rgb(12, 12, 12);
+      border-radius: 1.25em;
+      padding: 1.5em;
+      animation: 1s cubic-bezier(0.47, 0, 0.745, 0.715) .7s 1 glow-load;
+      animation-fill-mode: forwards;
+  }
+  
+  form label {
+      color: rgb(191, 191, 191);
+  }
+  
+  option, select, input, .textarea-div textarea {
+    background: #1b1a1a;
+    color: rgb(255, 229, 195);
+  }
+  select{
+    appearance: none;
+    background-image:
+    linear-gradient(45deg, transparent 50%, white 50%),
+    linear-gradient(135deg, rgb(255, 255, 255) 50%, transparent 50%);
+    background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    100% 0;
+    background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+  }
+  
+  .form-header {
+      text-align: center;
+      font-size: 28px;
+      padding: 0;
+      margin-bottom: 1.25em;
+      color: rgb(0, 89, 255);
+      
+  }
+  .hide{
+      text-align: center;
+      font-size: 15px;
+      margin-bottom: 0.5em;
+      color: rgb(204, 73, 73);
+  }
+  
+  label {
+      display: block;
+      margin-bottom: 0.35em;
+      margin-top: 0.35em;
+  }
+  
+  input:not(.btn), select {
+      padding: 0.625em 1em;
+      width: 100%;
+      outline: 0;
+      margin-bottom: 1.25em;
+      border-radius: 1.25em;
+      border: 0;
+  }
+  
+  .textarea-div {
+      width: 100%;
+  }
+  
+  textarea {
+      padding: 10px;
+      width: 100%;
+      outline: 0;
+      margin-bottom: 20px;
+      border-radius: 20px;
+      border: 0;
+      font-size: 14px;
+      height: 100px;
+  }
+  
+  .btn-container {
+    margin: auto;
+    padding-bottom: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+
+  .btn-glow {
+      border-radius: 2em ;
+      color: white ;
+      transition:.4s ;
+    background: rgb(12, 12, 12) ;
+      border: none ;
+      margin-top: 1em ;
+    font-size: 20px;
+    padding: .5em;
+    cursor: pointer;
+  }
+  
+  .btn-glow:hover {
+    box-shadow: 0px 0px 10px #f0860c;
+    background: #f0860c ;
+  }
+  
+  
+  
+  .form-container input:focus:not(.spouse,.btn),
+  .form-container select:focus,
+  .form-container textarea:focus  {
+      animation: continuous-glow 800ms ease-out infinite alternate;
+      box-shadow: 0 0 5px #f0860c, inset 0 0 5px #f0860c, 0 2px 0 #000;
+      color: black;
+      background-color: white;
+      font-weight: bold;
+  }
+  
+  .spouse-toggle:focus{
+    background-color: white;
+    animation: continuous-glow 800ms ease-out infinite alternate;
+    box-shadow: 0 0 5px #f0860c, inset 0 0 5px #f0860c, 0 2px 0 #000;
+    color: black;
+    font-weight: bold;
+  }
+
+  @media only screen and (min-width: 35.8em) {
+      .form {
+          display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
+      
+      .form-item {
+          width: 45%;
+      }
+  
+      .form-container {
+          padding: 5em 0;
+      width: 80%;
+    }
+    .btn-container{
+        width:45%;
+        display: flex;
+        justify-content:space-between;
+    }
+  }
+  
+  @media only screen and (min-width: 60.625em) {
+    .form-container {
+          padding: 8em 0;
+      width: 70%;
+    }
+  }
